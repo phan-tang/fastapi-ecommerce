@@ -1,0 +1,10 @@
+<a class="d-flex align-items-center justify-content-center dynamic-icon" *ngIf="svgIcon.link" [href]="svgIcon.link">
+    <mat-icon [matBadge]="badgeValue" [matBadgeHidden]="badgeValue === -1" [svgIcon]="svgIcon.name" aria-hidden="false"
+        aria-label="SVG icon"></mat-icon>
+    <p *ngIf="svgIcon.title">{{svgIcon.title}}</p>
+</a>
+<div class="d-flex align-items-center justify-content-center dynamic-icon" *ngIf="!svgIcon.link">
+    <mat-icon [matBadge]="badgeValue" [matBadgeHidden]="badgeValue === -1" [svgIcon]="svgIcon.name" aria-hidden="false"
+        aria-label="SVG icon"></mat-icon>
+    <p *ngIf="svgIcon.title">{{svgIcon.title}}</p>
+</div>
