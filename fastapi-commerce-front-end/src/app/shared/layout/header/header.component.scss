@@ -1,0 +1,56 @@
+header {
+    min-height: 100px;
+    color: white;
+    background-color: darkred;
+
+    .app-svg {
+        mat-icon {
+            width: 70px;
+            height: 70px;
+        }
+    }
+
+    .nav-bar {
+        display: inline-block;
+    }
+
+    .dropdown {
+
+        mat-icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        .dropdown-btn {
+            border-radius: 10px;
+            color: white;
+            background-color: darkred;
+        }
+
+        .dropdown-content {
+            background-color: white;
+
+            button {
+                width: 100%;
+                border-radius: 0;
+
+                p {
+                    color: darkred;
+                }
+            }
+        }
+
+        &:hover {
+            .dropdown-btn {
+                background-color: #7d1515;
+            }
+        }
+    }
+
+    .dynamic-icon {
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+        padding-right: 10px;
+    }
+}

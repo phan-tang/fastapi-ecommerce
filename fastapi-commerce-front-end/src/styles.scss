@@ -1,1 +1,15 @@
+@use '@angular/material' as mat;
+@use './app/styles/theme-colors' as custom-theme;
+
+html {
+    @include mat.theme((color: ((primary: custom-theme.$primary-palette,
+                    tertiary: custom-theme.$tertiary-palette)),
+            typography: Roboto,
+            density: 0, ));
+}
+
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';

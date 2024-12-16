@@ -1,0 +1,45 @@
+<footer class="d-flex align-items-center justify-content-center">
+    <div class="row w-100">
+        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 d-flex align-items-center justify-content-center">
+            <div class="p-3">
+                <div class="app-svg">
+                    <app-dynamic-icon [svgIcon]="appSvgItems"></app-dynamic-icon>
+                </div>
+                <div class="text-center">
+                    <h2>{{appName}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12 d-flex align-items-center">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 footer-part">
+                    <h4>About Our Site</h4>
+                    <p>
+                        Lorem ipsum Ut velit dolor Ut labore id fugiat in ut fugiat nostrud qui in dolore commodo eu
+                        magna Duis cillum dolor officia esse mollit proident Excepteur exercitation nulla. Lorem
+                        ipsum
+                        In reprehenderit commodo aliqua irure labore.
+                    </p>
+                </div>
+                <div class="col-xl-2 col-lg-6 col-md-6 col-sm-6 col-xs-12 footer-part">
+                    <h4>Site Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12 footer-part">
+                    <h4>Social</h4>
+                    <ul>
+                        <li class="footer-svg-icon" *ngFor="let item of footerSvgItems">
+                            <app-dynamic-icon [svgIcon]="item"></app-dynamic-icon>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,13 @@
+<header class="d-flex align-items-center justify-content-center">
+    <div class="row w-100">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex align-items-center justify-content-center app-svg">
+            <app-dynamic-icon [svgIcon]="appSvgItems"></app-dynamic-icon>
+            <app-dropdown *ngIf="dropdownItems" [dropdownItems]="dropdownItems"></app-dropdown>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 d-flex align-items-center justify-content-end">
+            <div class="nav-bar" *ngFor="let item of navItems">
+                <app-nav-item [navItem]="item"></app-nav-item>
+            </div>
+        </div>
+    </div>
+</header>

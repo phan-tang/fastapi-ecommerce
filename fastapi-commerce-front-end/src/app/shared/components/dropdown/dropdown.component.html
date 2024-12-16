@@ -1,0 +1,10 @@
+<div class="dropdown">
+    <button mat-button class="dropdown-btn">
+        <app-dynamic-icon [svgIcon]="dropdownItems.buttonDisplay"></app-dynamic-icon>
+    </button>
+    <div class="dropdown-content">
+        <button mat-button *ngFor="let item of dropdownItems.options" type="button">
+            <app-dynamic-icon [svgIcon]="item"></app-dynamic-icon>
+        </button>
+    </div>
+</div>
