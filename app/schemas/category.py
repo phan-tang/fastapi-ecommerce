@@ -7,3 +7,4 @@ class Category(Base, BaseEntity):
 
     category_name = Column(String(100), unique=True, nullable=False)
     description = Column(String(255), nullable=False)
+    icon = Column(String(50), nullable=False)

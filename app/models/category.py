@@ -8,6 +8,7 @@ from .request import BaseQueryRequest, BaseFormRequest
 class CategoryFormRequestModel(BaseFormRequest):
     category_name: str = Field(min_length=1, max_length=100)
     description: str = Field(min_length=1, max_length=255)
+    icon: str = Field(default=None)
 
     def get_unique_fields(self):
         return ['category_name']
@@ -16,6 +17,7 @@ class BaseCategoryViewModel(BaseModel):
     id: UUID
     category_name: str
     description: str
+    icon: str = Field(default=None)
     is_deleted: bool | None = None
 
     class Config:

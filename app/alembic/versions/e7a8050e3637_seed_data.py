@@ -43,6 +43,7 @@ def get_category_item(category):
         "id": category[0],
         "category_name": category[1],
         "description": fake.text(),
+        "icon": category[2],
         "is_deleted": False,
         "created_at": datetime.utcnow()
     }
@@ -57,6 +58,7 @@ def get_sub_category_item(category_id):
     }
 
 def get_product_item(product_id, brands, categories):
+    images = ['xiaomi_1', 'xiaomi_2', 'xiaomi_3', 'samsung_1', 'samsung_2']
     return {
         "id": product_id,
         "brand_id": random.choice(brands)[0],
@@ -65,7 +67,7 @@ def get_product_item(product_id, brands, categories):
         "description": fake.text(),
         "price": round(random.uniform(50, 300), 2),
         "quantity": random.randint(1, 100),
-        "main_image_link": fake.image_url(),
+        "main_image_link": f"./images/{random.choice(images)}.png",
         "product_status": random.choice([ProductStatus.INVISIBLE, ProductStatus.VISIBLE]),
         "is_deleted": False,
         "created_at": datetime.utcnow()
@@ -147,6 +149,7 @@ def upgrade() -> None:
         column('id', sa.UUID),
         column('category_name', sa.String),
         column('description', sa.String),
+        column('icon', sa.String),
         column('is_deleted', sa.Boolean),
         column('created_at', sa.DateTime)
     )
@@ -228,11 +231,13 @@ def upgrade() -> None:
     brands = [[uuid4(), brand_name] for brand_name in brand_names]
     op.bulk_insert(brands_table, [get_brand_item(brand) for brand in brands], multiinsert=False)
 
-    number_of_categories, number_of_products, number_of_users, number_of_product_reviews, number_of_discounts, number_of_product_sub_categories = 5, 100, 10, 5, 100, 5
-    categories = [[uuid4(), fake.company()] for index in range(number_of_categories)]
+    category_names_icons = [['Phones', 'smartphone'], ['Laptop', 'laptop_windows'], ['Earbuds', 'earbuds'], ['Mouse', 'mouse'], ['Plugins', 'settings_input_hdmi']]
+    categories = [[uuid4(), category_name_icon[0], category_name_icon[1]] for category_name_icon in category_names_icons]
     op.bulk_insert(categories_table, [get_category_item(category) for category in categories], multiinsert=False)
 
-    sub_category_ids = [uuid4() for index in range(number_of_categories)]
+    number_of_products, number_of_users, number_of_product_reviews, number_of_discounts, number_of_product_sub_categories = 100, 10, 5, 100, 5
+
+    sub_category_ids = [uuid4() for index in range(len(category_names_icons))]
     op.bulk_insert(sub_categories_table, [get_sub_category_item(sub_category_id) for sub_category_id in sub_category_ids], multiinsert=False)
 
     product_ids = [uuid4() for index in range(number_of_products)]

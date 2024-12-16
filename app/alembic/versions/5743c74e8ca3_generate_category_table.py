@@ -24,6 +24,7 @@ def upgrade() -> None:
         sa.Column('id', sa.UUID, nullable=False, primary_key=True),
         sa.Column('category_name', sa.String(100), unique=True, nullable=False),
         sa.Column('description', sa.String(255), nullable=False),
+        sa.Column('icon', sa.String(50)),
         sa.Column('is_deleted', sa.Boolean, default=0),
         sa.Column('created_at', sa.DateTime),
         sa.Column('updated_at', sa.DateTime),
